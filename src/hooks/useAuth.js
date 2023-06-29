@@ -1,21 +1,35 @@
 import axios from "axios";
 
-const useAuth = (url, data) => {
+const useAuth = () => {
   const createUser = (url, data) => {
-    axios
-      .post(url, data)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    return new Promise((resolve, reject) => {
+      axios
+        .post(url, data)
+        .then((res) => {
+          resolve(res.data);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   };
-  const loginUSer = (url, data) => {
-    axios
-      .post(url, data)
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-      })
-      .catch((err) => console.log(err));
+
+  const loginUser = (url, data) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(url, data)
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          resolve(res.data);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   };
-  return { createUser, loginUSer };
+
+  return { createUser, loginUser };
 };
+
 export default useAuth;

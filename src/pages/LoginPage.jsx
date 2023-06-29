@@ -7,7 +7,7 @@ const LoginPage = () => {
   const { register, handleSubmit, reset } = useForm();
   const [loginError, setLoginError] = useState(false);
   const [login, setLogin] = useState(false);
-  const { loginUSer } = useAuth();
+  const { loginUser } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,21 +16,26 @@ const LoginPage = () => {
       setLogin(user);
     }
   }, []);
-
-  const submit = (data) => {
+  const submit = async (data) => {
     reset({
       email: "",
       password: "",
     });
     const url = "https://e-commerce-api-v2.academlo.tech/api/v1/users/login";
-    loginUSer(url, data);
 
-    if (localStorage.getItem("token")) {
-      const user = JSON.parse(localStorage.getItem("user"));
-      setLogin(user);
-      setLoginError(false);
-      navigate("/");
-    } else {
+    try {
+      await loginUser(url, data);
+      if (localStorage.getItem("token")) {
+        const user = JSON.parse(localStorage.getItem("user"));
+        setLogin(user);
+        setLoginError(false);
+        navigate("/");
+      } else {
+        setLogin(false);
+        setLoginError(true);
+      }
+    } catch (error) {
+      console.log(error);
       setLogin(false);
       setLoginError(true);
     }
