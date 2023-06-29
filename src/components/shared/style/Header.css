@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 99;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav > ul {
+  display: flex;
+  gap: 1em;
+}
+.logo {
+  color: var(--color-red);
+  text-decoration: none;
+}
+.icons_links {
+  color: #ccc;
+  font-size: 1.8rem;
+}

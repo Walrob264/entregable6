@@ -1,0 +1,121 @@
+.containt_form {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_register {
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 3em;
+  width: 60%;
+  max-width: 600px;
+  min-width: 300px;
+}
+.text-register {
+  text-align: center;
+}
+.form_user {
+  width: 70%;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 1em;
+  gap: 2em;
+}
+.form_user-login {
+  height: 50%;
+  width: 70%;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 1em;
+  gap: 2em;
+}
+.dats_user {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+.input_user {
+  border-radius: 0.2em;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+}
+.button_user {
+  background-color: var(--color-red);
+  width: 80%;
+  max-width: 300px;
+  color: white;
+  padding: 0.5em;
+  border-radius: 1em;
+}
+.error_login {
+  background-color: white;
+  position: absolute;
+  z-index: 99;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
+  padding: 1em;
+  border-radius: 1em;
+}
+.text_error {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.bx-error-circle {
+  font-size: 10rem;
+  color: var(--color-red);
+}
+.button_error {
+  width: 100px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: var(--color-red);
+  color: white;
+  border-radius: 1em;
+}
+.login_user {
+  background-color: white;
+  min-width: 300px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3em;
+}
+.login_user > .bx-user {
+  font-size: 15rem;
+}
+.log_out {
+  font-size: 1.5rem;
+  height: 50px;
+  width: 200px;
+  color: white;
+  background-color: var(--color-red);
+  border-radius: 1em;
+}

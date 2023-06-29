@@ -1,0 +1,16 @@
+.products_containt {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.containt_purchases {
+  margin-top: 55px;
+  padding: 1em;
+  max-width: 900px;
+}
+@media (min-width: 800px) {
+  .containt_purchases {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}

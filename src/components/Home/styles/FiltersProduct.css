@@ -1,0 +1,76 @@
+.filter_containt-mobile {
+  position: fixed;
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 99;
+  transform: translateX(100%);
+}
+.filter_containt-mobileOpen {
+  transform: translateX(0%);
+  transition: all 0.7s ease;
+}
+.filter_containt {
+  height: 100%;
+  position: fixed;
+}
+.containt_form-filters {
+  padding: 1em;
+  overflow: hidden;
+  width: 90%;
+  align-self: center;
+  max-height: 200px;
+  transition: all 0.5s ease;
+}
+.close {
+  max-height: 47px;
+}
+.header_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 2px solid #ccc;
+}
+.form_filter-price {
+  display: flex;
+  flex-direction: column;
+}
+.form_filter-price > label {
+  display: flex;
+  justify-content: space-between;
+}
+.form_filter-price > label > input {
+  border: 1px solid #ccc;
+  border-radius: 0.3em;
+}
+.button_close {
+  align-self: self-end;
+  background-color: white;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding-top: 0.2em;
+  padding-right: 1em;
+}
+.header_category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 2px solid #ccc;
+}
+.categories_product {
+  cursor: pointer;
+}
+.categories_product:hover {
+  color: red;
+}
