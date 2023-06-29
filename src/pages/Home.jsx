@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import CardProduct from "../components/Home/CardProduct";
 import "../components/Home/styles/Home.css";
 import FiltersProducts from "../components/Home/FiltersProducts";
 import UseViewport from "../hooks/UseViewport";
+import Loading from "../components/shared/Loading";
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [priceMinMax, setPriceMinMax] = useState({
@@ -42,29 +43,32 @@ const Home = () => {
           </button>
         </form>
       </div>
-
-      <div className={`body_store ${isMobile ? "body_store-mobile" : ""}`}>
-        {isMobile && (
-          <div className="contain_filter">
-            <button className="button_filter" onClick={handlefilters}>
-              <i className="bx bx-filter-alt"></i> Filter
-            </button>
-            <FiltersProducts
-              handleCloseFilter={handleCloseFilter}
-              setHandleCloseFilter={setHandleCloseFilter}
-            />
+      {products ? (
+        <div className={`body_store ${isMobile ? "body_store-mobile" : ""}`}>
+          {isMobile && (
+            <div className="contain_filter">
+              <button className="button_filter" onClick={handlefilters}>
+                <i className="bx bx-filter-alt"></i> Filter
+              </button>
+              <FiltersProducts
+                handleCloseFilter={handleCloseFilter}
+                setHandleCloseFilter={setHandleCloseFilter}
+              />
+            </div>
+          )}
+          {!isMobile && <FiltersProducts setPriceMinMax={setPriceMinMax} />}
+          <div className="containt_cards">
+            {products
+              ?.filter(cbFilter)
+              .filter(cbFilterPrice)
+              .map((product) => (
+                <CardProduct product={product} key={product.id} />
+              ))}
           </div>
-        )}
-        {!isMobile && <FiltersProducts setPriceMinMax={setPriceMinMax} />}
-        <div className="containt_cards">
-          {products
-            ?.filter(cbFilter)
-            .filter(cbFilterPrice)
-            .map((product) => (
-              <CardProduct product={product} key={product.id} />
-            ))}
         </div>
-      </div>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };

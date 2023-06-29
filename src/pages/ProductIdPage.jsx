@@ -5,6 +5,7 @@ import ProductInfo from "../components/ProductId/ProductInfo";
 import SimiliarProducts from "../components/ProductId/SimiliarProducts";
 import SliderImgs from "../components/ProductId/SliderImgs";
 import "./styles/ProductIdPage.css";
+import Loading from "../components/shared/Loading";
 
 const ProductIdPage = () => {
   const { id } = useParams();
@@ -15,18 +16,23 @@ const ProductIdPage = () => {
   }, [id]);
 
   return (
-    <div className="page">
-      <div className="contain_info-product">
-        <div className="imgs_product">
-          <SliderImgs product={product} />
+    <>
+      {product ? (
+        <div className="page">
+          <div className="contain_info-product">
+            <div className="imgs_product">
+              <SliderImgs product={product} />
+            </div>
+            <ProductInfo product={product} />
+          </div>
+          <div className="containt_simliar-products">
+            <SimiliarProducts product={product} />
+          </div>
         </div>
-
-        <ProductInfo product={product} />
-      </div>
-      <div className="containt_simliar-products">
-        <SimiliarProducts product={product} />
-      </div>
-    </div>
+      ) : (
+        <Loading></Loading>
+      )}
+    </>
   );
 };
 
